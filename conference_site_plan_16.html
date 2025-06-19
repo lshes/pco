@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>피드백 공유 - 커뮤니티 / 후기</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body class="bg-gray-50 text-gray-800">
+  <header class="bg-blue-900 text-white p-6">
+    <div class="container mx-auto">
+      <h1 class="text-3xl font-bold">커뮤니티 / 피드백 공유</h1>
+      <p class="text-sm mt-1">행사에 대한 개선 의견, 아이디어, 불편사항 등을 자유롭게 공유해주세요.</p>
+    </div>
+  </header>
+
+  <main class="container mx-auto px-6 py-10">
+    <section class="mb-10">
+      <h2 class="text-2xl font-semibold mb-4">피드백 작성</h2>
+      <form class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
+        <div class="mb-4">
+          <label class="block text-gray-700 text-sm font-bold mb-2">이름</label>
+          <input type="text" placeholder="홍길동" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none">
+        </div>
+
+        <div class="mb-4">
+          <label class="block text-gray-700 text-sm font-bold mb-2">소속</label>
+          <input type="text" placeholder="회사/기관명" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none">
+        </div>
+
+        <div class="mb-4">
+          <label class="block text-gray-700 text-sm font-bold mb-2">참여한 컨퍼런스</label>
+          <select class="shadow border rounded w-full py-2 px-3 text-gray-700">
+            <option selected disabled>컨퍼런스를 선택하세요</option>
+            <option>스마트 시티 컨퍼런스 2025</option>
+            <option>헬스케어 AI 서밋</option>
+            <option>그린테크 포럼</option>
+          </select>
+        </div>
+
+        <div class="mb-6">
+          <label class="block text-gray-700 text-sm font-bold mb-2">피드백 내용</label>
+          <textarea rows="5" placeholder="행사에서 좋았던 점, 개선점, 아이디어 등을 입력해주세요." class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none"></textarea>
+        </div>
+
+        <div class="flex items-center justify-end">
+          <button class="bg-blue-700 hover:bg-blue-800 text-white font-bold py-2 px-6 rounded" type="submit">제출하기</button>
+        </div>
+      </form>
+    </section>
+
+    <section>
+      <h2 class="text-2xl font-semibold mb-4">다른 참가자의 피드백</h2>
+      <div class="space-y-6">
+
+        <div class="bg-white shadow rounded-lg p-6">
+          <p class="text-sm text-gray-800">세션 간 이동 시간이 촉박해서 쉬는 시간이 부족했습니다. 다음에는 세션 간 여유 시간을 조금 더 확보해주시면 좋겠습니다.</p>
+          <p class="text-xs text-gray-500 mt-2">이은정 · 스마트모빌리티센터</p>
+        </div>
+
+        <div class="bg-white shadow rounded-lg p-6">
+          <p class="text-sm text-gray-800">패널토론 세션이 매우 유익했고, 다양한 산업군의 전문가가 참여한 점이 인상 깊었습니다. 다음에도 꼭 참여하고 싶어요!</p>
+          <p class="text-xs text-gray-500 mt-2">최지훈 · 인사이트랩</p>
+        </div>
+
+        <div class="bg-white shadow rounded-lg p-6">
+          <p class="text-sm text-gray-800">등록 절차가 조금 복잡했습니다. 모바일에서도 간편하게 신청할 수 있도록 개선되면 좋겠습니다.</p>
+          <p class="text-xs text-gray-500 mt-2">박소영 · UX디자인컴퍼니</p>
+        </div>
+
+      </div>
+    </section>
+  </main>
+
+  <footer class="bg-gray-800 text-white text-center p-6">
+    <p>&copy; 2025 오픈형 컨퍼런스 플랫폼</p>
+  </footer>
+</body>
+</html>

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>주최사 가입 - 오픈형 컨퍼런스 플랫폼</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body class="bg-gray-100 text-gray-800">
+  <header class="bg-blue-900 text-white p-6">
+    <div class="container mx-auto">
+      <h1 class="text-3xl font-bold">컨퍼런스 주최사 회원가입</h1>
+      <p class="mt-1 text-sm">주최사 전용 계정을 생성하고 행사를 등록하세요.</p>
+    </div>
+  </header>
+
+  <main class="container mx-auto px-6 py-10">
+    <form action="#" method="POST" class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4 max-w-xl mx-auto">
+      <h2 class="text-xl font-semibold mb-4">기본 정보</h2>
+
+      <label class="block mb-2 text-sm font-medium">회사명 / 기관명</label>
+      <input type="text" name="company" required class="w-full px-4 py-2 mb-4 border rounded">
+
+      <label class="block mb-2 text-sm font-medium">담당자 이름</label>
+      <input type="text" name="manager" required class="w-full px-4 py-2 mb-4 border rounded">
+
+      <label class="block mb-2 text-sm font-medium">이메일 주소</label>
+      <input type="email" name="email" required class="w-full px-4 py-2 mb-4 border rounded">
+
+      <label class="block mb-2 text-sm font-medium">전화번호</label>
+      <input type="tel" name="phone" required class="w-full px-4 py-2 mb-4 border rounded">
+
+      <label class="block mb-2 text-sm font-medium">비밀번호</label>
+      <input type="password" name="password" required class="w-full px-4 py-2 mb-4 border rounded">
+
+      <label class="block mb-2 text-sm font-medium">비밀번호 확인</label>
+      <input type="password" name="confirm_password" required class="w-full px-4 py-2 mb-6 border rounded">
+
+      <label class="block mb-2 text-sm font-medium">주최사 유형</label>
+      <select name="organization_type" class="w-full px-4 py-2 mb-6 border rounded">
+        <option>지자체 / 공공기관</option>
+        <option>학회 / 협회</option>
+        <option>민간 기업</option>
+        <option>스타트업 / 벤처</option>
+        <option>기타</option>
+      </select>
+
+      <label class="inline-flex items-center mb-6">
+        <input type="checkbox" required class="form-checkbox h-4 w-4 text-blue-600">
+        <span class="ml-2 text-sm">이용약관 및 개인정보 수집에 동의합니다.</span>
+      </label>
+
+      <button type="submit" class="w-full bg-blue-800 text-white py-2 px-4 rounded hover:bg-blue-700">
+        주최사 가입 완료
+      </button>
+    </form>
+  </main>
+
+  <footer class="bg-gray-800 text-white text-center p-6">
+    <p>&copy; 2025 오픈형 컨퍼런스 플랫폼</p>
+  </footer>
+</body>
+</html>

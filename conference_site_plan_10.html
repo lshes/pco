@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>세션 등록 - 오픈형 컨퍼런스 플랫폼</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body class="bg-gray-100 text-gray-800">
+  <header class="bg-blue-900 text-white p-6">
+    <div class="container mx-auto">
+      <h1 class="text-3xl font-bold">강연 세션 등록</h1>
+      <p class="mt-1 text-sm">컨퍼런스 내 세션 정보를 입력해 등록하세요.</p>
+    </div>
+  </header>
+
+  <main class="container mx-auto px-6 py-10">
+    <form action="#" method="POST" class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4 max-w-2xl mx-auto">
+      <h2 class="text-xl font-semibold mb-4">세션 정보 입력</h2>
+
+      <label class="block mb-2 text-sm font-medium">컨퍼런스 선택</label>
+      <select name="conference_id" class="w-full px-4 py-2 mb-4 border rounded">
+        <option disabled selected>컨퍼런스를 선택하세요</option>
+        <option value="1">스마트 시티 컨퍼런스 2025</option>
+        <option value="2">헬스케어 AI 서밋</option>
+        <option value="3">그린테크 포럼</option>
+      </select>
+
+      <label class="block mb-2 text-sm font-medium">세션 제목</label>
+      <input type="text" name="session_title" required class="w-full px-4 py-2 mb-4 border rounded">
+
+      <label class="block mb-2 text-sm font-medium">세션 설명</label>
+      <textarea name="session_description" rows="4" class="w-full px-4 py-2 mb-4 border rounded" placeholder="세션에서 다룰 내용, 목표 등을 설명하세요."></textarea>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <div>
+          <label class="block mb-2 text-sm font-medium">시작 시간</label>
+          <input type="datetime-local" name="start_time" required class="w-full px-4 py-2 mb-4 border rounded">
+        </div>
+        <div>
+          <label class="block mb-2 text-sm font-medium">종료 시간</label>
+          <input type="datetime-local" name="end_time" required class="w-full px-4 py-2 mb-4 border rounded">
+        </div>
+      </div>
+
+      <label class="block mb-2 text-sm font-medium">세션 트랙 (옵션)</label>
+      <input type="text" name="track" class="w-full px-4 py-2 mb-4 border rounded" placeholder="예: 스마트시티, 지속가능성, AI 등">
+
+      <label class="block mb-2 text-sm font-medium">연사 선택</label>
+      <select name="speaker_id" class="w-full px-4 py-2 mb-6 border rounded">
+        <option disabled selected>연사를 선택하세요</option>
+        <option value="1">홍길동 (스마트도시연구소)</option>
+        <option value="2">이영희 (AI모빌리티랩)</option>
+      </select>
+
+      <label class="block mb-2 text-sm font-medium">세션 장소</label>
+      <input type="text" name="venue" class="w-full px-4 py-2 mb-6 border rounded">
+
+      <button type="submit" class="w-full bg-blue-800 text-white py-2 px-4 rounded hover:bg-blue-700">
+        세션 등록 완료
+      </button>
+    </form>
+  </main>
+
+  <footer class="bg-gray-800 text-white text-center p-6">
+    <p>&copy; 2025 오픈형 컨퍼런스 플랫폼</p>
+  </footer>
+</body>
+</html>

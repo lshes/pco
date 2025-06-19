@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>컨퍼런스 생성 - 오픈형 플랫폼</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body class="bg-gray-100 text-gray-800">
+  <header class="bg-blue-900 text-white p-6">
+    <div class="container mx-auto">
+      <h1 class="text-3xl font-bold">새로운 컨퍼런스 만들기</h1>
+      <p class="mt-1 text-sm">행사의 기본 정보를 입력해 컨퍼런스를 등록하세요.</p>
+    </div>
+  </header>
+
+  <main class="container mx-auto px-6 py-10">
+    <form action="#" method="POST" class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4 max-w-2xl mx-auto">
+      <h2 class="text-xl font-semibold mb-4">컨퍼런스 정보</h2>
+
+      <label class="block mb-2 text-sm font-medium">컨퍼런스 명</label>
+      <input type="text" name="title" required class="w-full px-4 py-2 mb-4 border rounded">
+
+      <label class="block mb-2 text-sm font-medium">개최 장소</label>
+      <input type="text" name="location" required class="w-full px-4 py-2 mb-4 border rounded">
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <div>
+          <label class="block mb-2 text-sm font-medium">시작일</label>
+          <input type="date" name="start_date" required class="w-full px-4 py-2 mb-4 border rounded">
+        </div>
+        <div>
+          <label class="block mb-2 text-sm font-medium">종료일</label>
+          <input type="date" name="end_date" required class="w-full px-4 py-2 mb-4 border rounded">
+        </div>
+      </div>
+
+      <label class="block mb-2 text-sm font-medium">간략한 소개</label>
+      <textarea name="description" rows="4" required class="w-full px-4 py-2 mb-4 border rounded" placeholder="행사 주제, 대상, 목표 등을 간략히 설명하세요."></textarea>
+
+      <label class="block mb-2 text-sm font-medium">주요 키워드 (쉼표로 구분)</label>
+      <input type="text" name="tags" class="w-full px-4 py-2 mb-6 border rounded" placeholder="예: 스마트시티, 모빌리티, AI, 지속가능성">
+
+      <label class="block mb-2 text-sm font-medium">주최기관</label>
+      <input type="text" name="host" class="w-full px-4 py-2 mb-4 border rounded">
+
+      <label class="block mb-2 text-sm font-medium">홈페이지 또는 외부 링크 (선택)</label>
+      <input type="url" name="link" class="w-full px-4 py-2 mb-6 border rounded">
+
+      <button type="submit" class="w-full bg-blue-800 text-white py-2 px-4 rounded hover:bg-blue-700">
+        컨퍼런스 등록 완료
+      </button>
+    </form>
+  </main>
+
+  <footer class="bg-gray-800 text-white text-center p-6">
+    <p>&copy; 2025 오픈형 컨퍼런스 플랫폼</p>
+  </footer>
+</body>
+</html>

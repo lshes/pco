@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>참가 등록 - 오픈형 컨퍼런스</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body class="bg-gray-100 text-gray-800">
+  <header class="bg-blue-800 text-white p-6">
+    <div class="container mx-auto">
+      <h1 class="text-3xl font-bold">컨퍼런스 참가 등록</h1>
+      <p class="mt-1 text-sm">빠르고 간편하게 참가 신청을 완료하세요.</p>
+    </div>
+  </header>
+
+  <main class="container mx-auto px-6 py-10">
+    <section class="max-w-xl mx-auto bg-white p-6 rounded shadow mb-8">
+      <h2 class="text-xl font-semibold mb-2">선택한 컨퍼런스</h2>
+      <div class="bg-gray-50 border rounded p-4">
+        <p class="font-bold text-blue-700">스마트 시티 컨퍼런스 2025</p>
+        <p class="text-sm text-gray-600">2025년 10월 22일 ~ 24일 | 서울 COEX</p>
+        <p class="mt-2 text-sm">스마트 교통, 디지털 인프라, AI 기반 도시 운영 세션이 포함된 글로벌 컨퍼런스입니다.</p>
+      </div>
+    </section>
+
+    <form action="#" method="POST" class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4 max-w-xl mx-auto">
+      <h2 class="text-xl font-semibold mb-4">기본 정보</h2>
+
+      <label class="block mb-2 text-sm font-medium">성명</label>
+      <input type="text" name="name" required class="w-full px-4 py-2 mb-4 border rounded">
+
+      <label class="block mb-2 text-sm font-medium">이메일</label>
+      <input type="email" name="email" required class="w-full px-4 py-2 mb-4 border rounded">
+
+      <label class="block mb-2 text-sm font-medium">소속기관 / 회사명</label>
+      <input type="text" name="organization" class="w-full px-4 py-2 mb-4 border rounded">
+
+      <label class="block mb-2 text-sm font-medium">전화번호</label>
+      <input type="tel" name="phone" class="w-full px-4 py-2 mb-4 border rounded">
+
+      <label class="block mb-2 text-sm font-medium">참가 유형</label>
+      <select name="type" class="w-full px-4 py-2 mb-6 border rounded">
+        <option>일반 참가자</option>
+        <option>발표자 / 연사</option>
+        <option>기업 부스 참가자</option>
+        <option>기자 / 미디어</option>
+      </select>
+
+      <label class="inline-flex items-center mb-6">
+        <input type="checkbox" required class="form-checkbox h-4 w-4 text-blue-600">
+        <span class="ml-2 text-sm">개인정보 제공 및 활용에 동의합니다.</span>
+      </label>
+
+      <button type="submit" class="w-full bg-blue-700 text-white py-2 px-4 rounded hover:bg-blue-600">
+        참가 신청 완료
+      </button>
+    </form>
+  </main>
+
+  <footer class="bg-gray-800 text-white text-center p-6">
+    <p>&copy; 2025 오픈형 컨퍼런스 플랫폼</p>
+  </footer>
+</body>
+</html>
