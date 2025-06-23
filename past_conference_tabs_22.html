@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>산업별 인사이트 - 오픈형 컨퍼런스 플랫폼</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
+</head>
+<body class="bg-gray-100 text-gray-800">
+  <header class="bg-blue-700 text-white p-6">
+    <div class="container mx-auto">
+      <h1 class="text-3xl font-bold">산업별 인사이트</h1>
+      <p class="mt-1 text-sm">주요 산업 트렌드를 뉴스 형식으로 살펴보세요.</p>
+    </div>
+  </header>
+
+  <main class="container mx-auto px-6 py-10" x-data="{ tab: '2차전지' }">
+    <!-- 카테고리 탭 -->
+    <div class="mb-6 flex space-x-4">
+      <button @click="tab = '2차전지'" :class="tab === '2차전지' ? 'bg-blue-700 text-white' : 'bg-gray-200 text-gray-800'" class="px-4 py-2 rounded">2차전지</button>
+      <button @click="tab = '반도체'" :class="tab === '반도체' ? 'bg-blue-700 text-white' : 'bg-gray-200 text-gray-800'" class="px-4 py-2 rounded">반도체</button>
+      <button @click="tab = '정유화학'" :class="tab === '정유화학' ? 'bg-blue-700 text-white' : 'bg-gray-200 text-gray-800'" class="px-4 py-2 rounded">정유화학</button>
+      <button @click="tab = '푸드테크'" :class="tab === '푸드테크' ? 'bg-blue-700 text-white' : 'bg-gray-200 text-gray-800'" class="px-4 py-2 rounded">푸드테크</button>
+    </div>
+
+    <!-- 2차전지 콘텐츠 -->
+    <div x-show="tab === '2차전지'" class="space-y-4">
+      <article class="bg-white shadow rounded p-6">
+        <h2 class="text-xl font-semibold text-blue-800">소듐배터리, 리튬 대체할 차세대 에너지 솔루션 될까?</h2>
+        <p class="text-sm text-gray-500 mt-1">2025.06.20 | 배터리 산업 리포트</p>
+        <div class="grid md:grid-cols-2 gap-4 mt-4">
+          <img src="https://cdn.pixabay.com/photo/2021/10/21/10/31/salt-6728600_1280.jpg" alt="소금 이미지" class="rounded w-full h-52 object-cover">
+
+        </div>
+        <p class="mt-6 text-sm leading-relaxed">
+          전 세계 배터리 업계가 리튬 수급 불균형과 가격 급등 문제를 겪는 가운데, 소듐(나트륨)을 활용한 차세대 배터리가 주목받고 있다.
+          중국과 유럽 소재 기업들은 소듐이 리튬 대비 자원 접근성이 높고, 원가가 저렴하다는 점에 주목하여 개발에 속도를 내고 있다.
+          다만 에너지 밀도와 충전 속도 등 상용화까지는 넘어야 할 기술적 과제도 많다. 국내 배터리 3사는 시제품 시험을 본격화하면서, 
+          B2B 수요 예측과 함께 전기차 외의 산업용 저장장치 시장을 타겟으로 한 전략을 병행하고 있다.
+        </p>
+        <p class="mt-4 text-sm leading-relaxed">
+          특히 세계 최대 배터리 기업인 **CATL(Contemporary Amperex Technology)**은 2023년 세계 최초로 소듐이온 배터리를 대량 양산 가능한 플랫폼으로 공개했으며, 전기차용뿐만 아니라 ESS 및 저가형 기기에 적극 도입할 계획을 밝힌 바 있다. 
+          해당 기술은 리튬 대비 낮은 에너지 밀도라는 약점을 보완하기 위해 하이브리드 셀 형태로 적용되고 있으며, 업계는 향후 CATL의 소듐배터리 실증 사례에 따라 시장 반응이 가속화될 것으로 전망하고 있다.
+        </p>
+		<div class="grid md:grid-cols-2 gap-4 mt-4">
+			<img src="https://cdn.pixabay.com/photo/2015/11/30/22/54/battery-1071317_1280.jpg" alt="배터리 이미지" class="rounded w-full h-52 object-cover">
+		</div>
+      </article>
+    </div>
+          
+    <!-- 다른 산업 카테고리 안내 -->
+    <div x-show="tab === '반도체'" class="text-sm text-gray-500">해당 카테고리의 인사이트는 준비 중입니다.</div>
+    <div x-show="tab === '정유화학'" class="text-sm text-gray-500">해당 카테고리의 인사이트는 준비 중입니다.</div>
+    <div x-show="tab === '푸드테크'" class="text-sm text-gray-500">해당 카테고리의 인사이트는 준비 중입니다.</div>
+  </main>
+
+  <footer class="bg-gray-800 text-white text-center p-6 mt-16">
+    <p>&copy; 2025 오픈형 컨퍼런스 플랫폼</p>
+  </footer>
+</body>
+</html>

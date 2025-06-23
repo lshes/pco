@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>내 컨퍼런스 신청자 리스트</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
+</head>
+<body class="bg-gray-100 text-gray-800">
+  <header class="bg-blue-700 text-white p-6">
+    <div class="container mx-auto">
+      <h1 class="text-3xl font-bold">내 컨퍼런스 신청자 리스트</h1>
+      <p class="text-sm mt-1">주최한 컨퍼런스별 신청자 현황을 확인하고 관리하세요.</p>
+    </div>
+  </header>
+
+  <main class="container mx-auto px-6 py-10" x-data="{ search: '' }">
+    <!-- 컨퍼런스 선택 및 검색 필터 -->
+    <div class="mb-4 grid md:grid-cols-3 gap-4">
+      <div>
+        <label for="conference-select" class="block text-sm font-medium mb-2">컨퍼런스 선택</label>
+        <select id="conference-select" class="w-full px-4 py-2 border rounded">
+          <option>스마트 시티 컨퍼런스 2025</option>
+          <option>헬스케어 AI 서밋</option>
+          <option>그린테크 전시 포럼</option>
+        </select>
+      </div>
+      <div>
+        <label for="search" class="block text-sm font-medium mb-2">신청자 검색</label>
+        <input type="text" x-model="search" placeholder="이름, 이메일, 소속 등 검색" class="w-full px-4 py-2 border rounded"/>
+      </div>
+      <div class="flex items-end justify-end space-x-2">
+        <button class="bg-green-600 text-white px-4 py-2 rounded hover:bg-green-500">엑셀 다운로드</button>
+        <button class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-500">메일 발송</button>
+        <button class="bg-yellow-500 text-white px-4 py-2 rounded hover:bg-yellow-400">SMS 발송</button>
+      </div>
+    </div>
+
+    <!-- 신청자 리스트 테이블 -->
+    <div class="overflow-x-auto">
+      <table class="min-w-full bg-white shadow rounded">
+        <thead class="bg-gray-200 text-gray-700">
+          <tr>
+            <th class="py-3 px-4 text-left">
+              <input type="checkbox"/>
+            </th>
+            <th class="py-3 px-4 text-left">#</th>
+            <th class="py-3 px-4 text-left">이름</th>
+            <th class="py-3 px-4 text-left">이메일</th>
+            <th class="py-3 px-4 text-left">소속</th>
+            <th class="py-3 px-4 text-left">등록일</th>
+            <th class="py-3 px-4 text-left">상태</th>
+          </tr>
+        </thead>
+        <tbody>
+          <template x-for="(user, index) in [
+            { name: '홍길동', email: 'gildong@example.com', org: '스마트시티연구소', date: '2025-06-01', status: '확정' },
+            { name: '김보라', email: 'bora.kim@example.com', org: '헬스케어벤처스', date: '2025-06-03', status: '대기' }
+          ].filter(u => u.name.includes(search) || u.email.includes(search) || u.org.includes(search))" :key="index">
+            <tr class="border-t">
+              <td class="py-3 px-4">
+                <input type="checkbox"/>
+              </td>
+              <td class="py-3 px-4" x-text="index + 1"></td>
+              <td class="py-3 px-4" x-text="user.name"></td>
+              <td class="py-3 px-4" x-text="user.email"></td>
+              <td class="py-3 px-4" x-text="user.org"></td>
+              <td class="py-3 px-4" x-text="user.date"></td>
+              <td class="py-3 px-4 font-semibold" :class="user.status === '확정' ? 'text-green-600' : 'text-yellow-600'" x-text="user.status"></td>
+            </tr>
+          </template>
+        </tbody>
+      </table>
+    </div>
+  </main>
+
+  <footer class="bg-gray-800 text-white text-center p-6 mt-16">
+    <p>&copy; 2025 오픈형 컨퍼런스 플랫폼</p>
+  </footer>
+</body>
+</html>

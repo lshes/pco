@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>지난 컨퍼런스 보기 - 오픈형 플랫폼</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
+</head>
+<body class="bg-gray-50 text-gray-800" x-data="{ tab: '2025', showModal: false, selectedConference: {} }">
+  <header class="bg-blue-700 text-white p-6">
+    <div class="container mx-auto">
+      <h1 class="text-3xl font-bold">지난 컨퍼런스 보기</h1>
+      <p class="mt-1 text-sm">연도별로 과거 컨퍼런스를 간편하게 확인해보세요.</p>
+    </div>
+  </header>
+
+  <main class="container mx-auto px-6 py-10">
+    <div class="mb-8 flex space-x-4">
+      <button @click="tab = '2025'" :class="tab === '2025' ? 'bg-blue-700 text-white' : 'bg-gray-200 text-gray-800'" class="px-4 py-2 rounded">2025</button>
+      <button @click="tab = '2024'" :class="tab === '2024' ? 'bg-blue-700 text-white' : 'bg-gray-200 text-gray-800'" class="px-4 py-2 rounded">2024</button>
+      <button @click="tab = '2023'" :class="tab === '2023' ? 'bg-blue-700 text-white' : 'bg-gray-200 text-gray-800'" class="px-4 py-2 rounded">2023</button>
+    </div>
+
+    <!-- 2025 -->
+    <div x-show="tab === '2025'" class="grid md:grid-cols-3 gap-8">
+      <template x-for="conference in [
+        {
+          title: '스마트 시티 컨퍼런스 2025',
+          date: '2025.10.22 ~ 2025.10.24 | 서울 COEX',
+          desc: '스마트 교통, 지속가능 인프라, AI 도시 운영 사례 등 다양한 세션이 포함된 도시 혁신 행사',
+          summary: '스마트 인프라, 교통 통합관리, 디지털 시민 플랫폼 사례 발표',
+          speaker: { org: '서울시 스마트교통본부', position: '본부장', name: '이도현' },
+          video: 'https://www.youtube.com/embed/dQw4w9WgXcQ',
+          material: '#' 
+        },
+        {
+          title: '헬스케어 AI 서밋',
+          date: '2025.11.03 ~ 2025.11.05 | 부산 BEXCO',
+          desc: 'AI 기반 의료 진단, 병원 자동화, 웨어러블 기술과 헬스케어 트렌드를 아우르는 대규모 기술 컨퍼런스',
+          summary: 'AI 진단기기 데모, 병원 데이터 연계 플랫폼 발표, 웨어러블 헬스케어 전망',
+          speaker: { org: '헬스AI랩', position: 'CTO', name: '정하윤' },
+          video: 'https://www.youtube.com/embed/dQw4w9WgXcQ',
+          material: '#'
+        }
+      ]" :key="conference.title">
+        <div @click="selectedConference = conference; showModal = true" class="bg-white rounded shadow p-4 hover:shadow-lg transition cursor-pointer">
+          <h2 class="text-lg font-semibold" x-text="conference.title"></h2>
+          <p class="text-gray-500 text-sm" x-text="conference.date"></p>
+          <p class="mt-2 text-sm" x-text="conference.desc"></p>
+        </div>
+      </template>
+    </div>
+
+    <!-- 상세 레이어 모달 -->
+    <div x-show="showModal" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
+      <div class="bg-white rounded-lg shadow-lg w-full max-w-3xl p-6 relative">
+        <button class="absolute top-2 right-2 text-gray-500 hover:text-black" @click="showModal = false">✕</button>
+        <h3 class="text-xl font-bold mb-1" x-text="selectedConference.title"></h3>
+        <p class="text-sm text-gray-500 mb-2" x-text="selectedConference.date"></p>
+        <div class="mb-4">
+          <p class="text-sm"><strong>연사:</strong> <span x-text="selectedConference.speaker.name"></span> (<span x-text="selectedConference.speaker.position"></span>, <span x-text="selectedConference.speaker.org"></span>)</p>
+        </div>
+        <p class="mb-4 text-sm" x-text="selectedConference.summary"></p>
+        <div class="aspect-w-16 aspect-h-9 mb-4">
+          <iframe class="w-full rounded" :src="selectedConference.video" frameborder="0" allowfullscreen></iframe>
+        </div>
+        <div class="text-right">
+          <a :href="selectedConference.material" target="_blank" class="inline-block bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-500 text-sm">발표자료 다운로드</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- 2024 -->
+    <div x-show="tab === '2024'" class="grid md:grid-cols-3 gap-8">
+      <div class="bg-white rounded shadow p-4 hover:shadow-lg transition">
+        <h2 class="text-lg font-semibold">디지털 경제 포럼 2024</h2>
+        <p class="text-gray-500 text-sm">2024.10.10 ~ 2024.10.11 | 서울 DDP</p>
+        <p class="mt-2 text-sm">웹3, 디지털 통화, 디지털 인재 양성에 관한 트렌드 공유</p>
+      </div>
+    </div>
+
+    <!-- 2023 -->
+    <div x-show="tab === '2023'" class="grid md:grid-cols-3 gap-8">
+      <div class="bg-white rounded shadow p-4 hover:shadow-lg transition">
+        <h2 class="text-lg font-semibold">AI 교육 혁신 컨퍼런스</h2>
+        <p class="text-gray-500 text-sm">2023.08.01 ~ 2023.08.02 | 경북 포항공대</p>
+        <p class="mt-2 text-sm">인공지능과 미래 교육의 접점에 대한 사례 중심 발표</p>
+      </div>
+    </div>
+  </main>
+
+  <footer class="bg-gray-800 text-white text-center p-6 mt-16">
+    <p>&copy; 2025 오픈형 컨퍼런스 플랫폼</p>
+  </footer>
+</body>
+</html>
