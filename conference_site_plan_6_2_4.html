@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AI 요약 보고서 생성</title>
+  <link
+    href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css"
+    rel="stylesheet"
+  />
+  <script src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
+</head>
+<body class="bg-gray-100 text-gray-800" x-data="{
+    keywords: '배터리, BMS, 양극제, 에너지 밀도',
+    department: '배터리사업부',
+    affiliation: 'LG에너지솔루션',
+    interest: '고체전해질 기술',
+    job: '연구개발',
+    industry: '2차전지 소재 제조',
+    summary: ''
+  }">
+  <header class="bg-blue-800 text-white p-6">
+    <div class="container mx-auto">
+      <h1 class="text-3xl font-bold">AI 요약 보고서 생성기</h1>
+      <p class="mt-1 text-sm">강연 키워드와 참여자 프로필을 기반으로 요약 보고서를 생성합니다.</p>
+    </div>
+  </header>
+
+  <main class="container mx-auto px-6 py-10 max-w-2xl">
+    <div class="bg-white p-6 rounded shadow">
+      <h2 class="text-xl font-semibold mb-4">입력 항목</h2>
+
+      <label class="block mb-2 font-medium">강연 키워드 (쉼표로 구분)</label>
+      <input type="text" x-model="keywords" class="w-full mb-4 border px-4 py-2 rounded" />
+
+      <div class="grid grid-cols-2 gap-4">
+        <div>
+          <label class="block mb-2 font-medium">소속</label>
+          <input type="text" x-model="affiliation" class="w-full border px-4 py-2 rounded" />
+        </div>
+        <div>
+          <label class="block mb-2 font-medium">부서</label>
+          <input type="text" x-model="department" class="w-full border px-4 py-2 rounded" />
+        </div>
+        <div>
+          <label class="block mb-2 font-medium">관심사항</label>
+          <input type="text" x-model="interest" class="w-full border px-4 py-2 rounded" />
+        </div>
+        <div>
+          <label class="block mb-2 font-medium">직종</label>
+          <input type="text" x-model="job" class="w-full border px-4 py-2 rounded" />
+        </div>
+        <div class="col-span-2">
+          <label class="block mb-2 font-medium">업종</label>
+          <input type="text" x-model="industry" class="w-full border px-4 py-2 rounded" />
+        </div>
+      </div>
+
+      <button @click="summary = `▶️ ▶️ [요약 결과]<br><br>
+
+LG에너지솔루션 배터리사업부 소속의 연구개발 직무자는 ‘고체전해질 기술’에 높은 관심을 두고 있으며, 이번 강의에서 다룬 <br>
+'배터리', '양극제', '에너지 밀도', '리사이클링' 등의 핵심 키워드를 통해 현장 기술의 상용화 조건과 소재 간 인터페이스 안정성 확보 이슈를 체계적으로 이해할 수 있었습니다.  <br><br>
+
+특히, LFP 및 원통형 배터리 셀 구조 변화가 BMS 최적화와 어떻게 연계되는지를 파악함으로써, 소재 제조 현장에 적용 가능한 공정 개선 아이디어를 도출할 수 있었습니다.  <br><br>
+
+향후 R&D 방향성은 고체전해질 기반 시스템에서의 안전성 확보와 수명 향상이라는 산업 과제를 실질적으로 해결하는 데 기여할 것으로 기대됩니다.<br>
+.`" class="mt-6 bg-blue-700 text-white px-4 py-2 rounded hover:bg-blue-600">
+        요약 보고서 생성
+      </button>
+
+      <template x-if="summary">
+        <div class="mt-6 bg-gray-100 p-4 border rounded text-sm" x-html="summary"></div>
+      </template>
+    </div>
+  </main>
+
+  <a href='conference_site_plan_7_1_1.html'>
+  <footer class="bg-gray-800 text-white text-center p-6">
+    <p>&copy; 2025 오픈형 컨퍼런스 플랫폼</p>
+  </footer>
+  </a>
+</body>
+</html>
